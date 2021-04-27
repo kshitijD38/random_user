@@ -1,9 +1,17 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+body {
+  background-color: lightgray;
 }
-.userList {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+
+.app {
+  font-family: sans-serif;
+  /* text-align: center; */
+}
+
+button {
+  cursor: pointer;
+  font-size: 25px;
+  border: none;
+  background-color: lightblue;
+  border-radius: 10px;
+  box-shadow: 0 0 8px -1px rgba(0, 0, 0, 0.5);
 }

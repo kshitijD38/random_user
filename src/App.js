@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Header from "./components/Header/Header";
+import List from "./components/List/List";
 import "./styles.css";
 
 export default function App() {
@@ -14,22 +16,10 @@ export default function App() {
     setUser([...user, dataJson.results[0]]);
   };
 
-  console.log("user is >>>>>", user);
-
   return (
-    <div className="App">
-      <button onClick={addUserHandler}>Add User</button>
-      <h3>
-        {user?.map((u, index) => (
-          <div key={index}>
-            {u.name.title}
-            {u.name.first}
-            {u.name.last} <br />
-            {u.email} <br />
-            {u.gender}
-          </div>
-        ))}
-      </h3>
+    <div className="app">
+      <Header addUserHandler={addUserHandler} />
+      <List user={user} />
     </div>
   );
 }
