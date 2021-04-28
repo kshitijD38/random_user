@@ -8,7 +8,7 @@ export default function App() {
 
   const api = "https://randomuser.me/api";
 
-  const addUserHandler = async () => {
+  const addUserHandler = async (e) => {
     const data = await fetch(api, {
       method: "GET"
     });
@@ -18,8 +18,8 @@ export default function App() {
 
   return (
     <div className="app">
-      <Header addUserHandler={addUserHandler} />
-      <List user={user} />
+      <Header user={user} setUser={setUser} addUserHandler={addUserHandler} />
+      <List user={user} setUser={setUser} />
     </div>
   );
 }

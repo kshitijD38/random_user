@@ -1,4 +1,6 @@
-const ListItem = ({ u }) => {
+const ListItem = ({ u, index, handleRemove }) => {
+  // console.log("user is ", user);
+
   return (
     <div className="list__items">
       <div className="list__item">
@@ -14,7 +16,9 @@ const ListItem = ({ u }) => {
       </div>
       <div>
         <button className="list__button">Edit</button>
-        <button className="list__button">Delete</button>
+        <button onClick={() => handleRemove(index)} className="list__button">
+          Delete
+        </button>
       </div>
     </div>
   );
