@@ -20,14 +20,14 @@ export default function App() {
   return (
     <div className="app">
       <Header user={user} setUser={setUser} addUserHandler={addUserHandler} />
-      <Profiler
+      {/* <Profiler
         id="userList"
         onRender={(id, phase, actualDuration) =>
           console.log({ id, phase, actualDuration })
         }
-      >
-        <List user={user} setUser={setUser} />
-      </Profiler>
+      > */}
+      <List user={user} setUser={setUser} />
+      {/* </Profiler> */}
     </div>
   );
 }

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo } from "react";
 import ListItem from "../ListItem/ListItem";
 import "./List.css";
 
-const List = ({ user, setUser }) => {
+const List = memo(({ user, setUser }) => {
   function handleRemove(index) {
     const newUser = user.filter((item, idx) => idx !== index);
 
@@ -16,6 +16,6 @@ const List = ({ user, setUser }) => {
       ))}
     </div>
   );
-};
+});
 
 export default List;
