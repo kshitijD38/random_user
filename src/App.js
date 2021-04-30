@@ -1,5 +1,5 @@
 import { Profiler, useState } from "react";
-// memoizing(caching)
+// memoizing(caching) => memoised component follows strict react rules
 import Header from "./components/Header/Header";
 import List from "./components/List/List";
 import "./styles.css";
