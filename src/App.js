@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { Profiler, useState } from "react";
+// memoizing(caching)
 import Header from "./components/Header/Header";
 import List from "./components/List/List";
 import "./styles.css";
@@ -19,7 +20,14 @@ export default function App() {
   return (
     <div className="app">
       <Header user={user} setUser={setUser} addUserHandler={addUserHandler} />
-      <List user={user} setUser={setUser} />
+      <Profiler
+        id="userList"
+        onRender={(id, phase, actualDuration) =>
+          console.log({ id, phase, actualDuration })
+        }
+      >
+        <List user={user} setUser={setUser} />
+      </Profiler>
     </div>
   );
 }
