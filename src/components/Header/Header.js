@@ -1,24 +1,29 @@
 import React from "react";
 import Button from "../Button/Button";
+import SearchInput from "../SearchInput/SearchInput";
 
-const Header = ({ user, setUser, addUserHandler }) => {
-  const handleSearch = (e) => {
-    const filteredAppState = user.filter(
-      (user) =>
-        user.name.toLowerCase().includes(user.value.toLowerCase()) ||
-        user.gender.toLowerCase().includes(user.value.toLowerCase()) ||
-        user.email.toLowerCase().includes(user.value.toLowerCase())
-    );
-
-    setUser(filteredAppState);
-  };
-
+const Header = ({
+  user,
+  setUser,
+  addUserHandler,
+  search,
+  setSearch,
+  searchChange
+}) => {
   return (
-    <div>
+    <div style={{ display: "flex", justifyContent: "space-between" }}>
       <button>Asc</button>
       <button>Dsc</button>
-      <input onChange={handleSearch} />
-      <Button addUserHandler={addUserHandler} />
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <SearchInput
+          user={user}
+          setUser={setUser}
+          search={search}
+          setSearch={setSearch}
+        />
+        {/* <Button clickHandler={searchChange} name={"Search"} /> */}
+      </div>
+      <Button clickHandler={addUserHandler} name={"Add User"} />
     </div>
   );
 };
