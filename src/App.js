@@ -6,9 +6,8 @@ import "./styles.css";
 
 export default function App() {
   const [user, setUser] = useState([]);
-  const [searchedUser, setSearchedUser] = useState(user);
-  const api = "https://randomuser.me/api";
   const [search, setSearch] = useState("");
+  const api = "https://randomuser.me/api";
 
   useEffect(() => {}, []);
 
@@ -19,20 +18,15 @@ export default function App() {
     const dataJson = await data.json();
     const newUser = [...user, dataJson.results[0]];
     setUser(newUser);
-    setSearchedUser(user);
   };
 
-  const searchChange = () => {
-    const filteredAppState = user.filter(
-      (user) =>
-        user.name.first.toLowerCase().includes(search.toLowerCase()) ||
-        user.name.last.toLowerCase().includes(search.toLowerCase()) ||
-        user.gender.toLowerCase().includes(search.toLowerCase()) ||
-        user.email.toLowerCase().includes(search.toLowerCase())
-    );
-
-    setSearchedUser(filteredAppState);
-  };
+  const filteredAppState = user.filter(
+    (user) =>
+      user.name.first.toLowerCase().includes(search.toLowerCase()) ||
+      user.name.last.toLowerCase().includes(search.toLowerCase()) ||
+      user.gender.toLowerCase().includes(search.toLowerCase()) ||
+      user.email.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="app">
@@ -42,7 +36,7 @@ export default function App() {
         addUserHandler={addUserHandler}
         search={search}
         setSearch={setSearch}
-        searchChange={searchChange}
+        // searchChange={searchChange}
       />
       {/* <Profiler
         id="userList"
@@ -50,7 +44,7 @@ export default function App() {
           console.log({ id, phase, actualDuration })
         }
       > */}
-      <List user={searchedUser} setUser={setUser} />
+      <List user={filteredAppState} setUser={setUser} />
       {/* </Profiler> */}
     </div>
   );
