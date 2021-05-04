@@ -36,16 +36,16 @@ export default function App() {
         addUserHandler={addUserHandler}
         search={search}
         setSearch={setSearch}
-        // searchChange={searchChange}
       />
       {/* <Profiler
         id="userList"
         onRender={(id, phase, actualDuration) =>
           console.log({ id, phase, actualDuration })
         }
-      > */}
+      >  
+        <List user={filteredAppState} setUser={setUser} />
+      </Profiler> */}
       <List user={filteredAppState} setUser={setUser} />
-      {/* </Profiler> */}
     </div>
   );
 }
